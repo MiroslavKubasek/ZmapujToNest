@@ -1,0 +1,24 @@
+[
+	{
+        "text": "Zvířecí detektiv",
+        "defaultGroup": "zvireciDetektiv",
+        "defaultLeaf": "animal",
+        "icon": "resources/images/icons/group_zvireciDetektiv.png",
+        "sort": 1
+    },
+    {
+        "text": "Ztráty a nálezy",
+        "defaultGroup": "ztratyNalezy",
+        "defaultLeaf": "ztratyNalezy",
+        "icon": "resources/images/icons/group_ztratyNalezy.png",
+        "sort": 2
+    },
+    {
+        "text": "Pochval to",
+        "defaultGroup": "pochvalTo",
+        "defaultLeaf": "pochvalTo",
+        "icon": "resources/images/icons/group_pochvalTo.png",
+        "sort": 3
+    }
+
+]

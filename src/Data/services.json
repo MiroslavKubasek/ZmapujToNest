@@ -1,0 +1,1428 @@
+[
+    {
+        "code": "waste",
+        "name": "Drobný nepořádek",
+        "icon": "waste",
+        "description": "Poházený odpad, který sami nezvládnete uklidit",
+        "groups": ["trash"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "code": "waste_type",
+                "datatype": "singlevaluelist",
+                "required": true,
+                "order": 1,
+                "name": "Typ nepořádku",
+                "description": "Určete jak je nepořádek rozmístěn",
+                "values": [
+                    {
+                        "key": "local",
+                        "name": "lokální (na jednom místě)",
+                        "default": true
+                    },
+                    {
+                        "key": "area",
+                        "name": "plošný (na větším území)"
+                    },
+                    {
+                        "key": "line",
+                        "name": "liniový (např. podél cesty)"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "code": "comment",
+                "datatype": "text",
+                "required": false,
+                "order": 99,
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace"
+            }
+        ]
+    },
+    {
+        "code": "dump",
+        "name": "Černá skládka",
+        "icon": "landfill",
+        "description": "Nepovolená skládka odpadů",
+        "groups": ["trash"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 1,
+                "code": "dump_size",
+                "datatype": "singlevaluelist",
+                "name": "Velikost skládky",
+                "description": "Jak je skládka velká?",
+                "values": [
+                    {
+                        "key": "small",
+                        "name": "malá (do 10kg)",
+                        "icon": "dump_small"
+                    },
+                    {
+                        "key": "medium",
+                        "name": "střední (do 50kg)",
+                        "icon": "dump_medium",
+                        "default": true
+                    },
+                    {
+                        "key": "big",
+                        "name": "velká",
+                        "icon": "dump_big"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "code": "dump_type",
+                "datatype": "multivaluelist",
+                "required": true,
+                "order": 2,
+                "name": "Druh odpadu",
+                "description": "Jaké druhy odpadu se na skládce nacházejí?",
+                "values": [
+                    {
+                        "key": "household",
+                        "name": "komunální odpad",
+                        "icon": "dump_household"
+                    },
+                    {
+                        "key": "automotive",
+                        "name": "autovrak",
+                        "icon": "dump_automotive"
+                    },
+                    {
+                        "key": "tirs",
+                        "name": "pneumatiky",
+                        "icon": "dump_tirs"
+                    },
+                    {
+                        "key": "construction",
+                        "name": "stavební odpad",
+                        "icon": "dump_construction"
+                    },
+                    {
+                        "key": "plastic",
+                        "name": "plasty",
+                        "icon": "dump_plastic"
+                    },
+                    {
+                        "key": "electronic",
+                        "name": "elektronika",
+                        "icon": "dump_electronic"
+                    },
+                    {
+                        "key": "glass",
+                        "name": "sklo",
+                        "icon": "dump_glass"
+                    },
+                    {
+                        "key": "metal",
+                        "name": "kovy",
+                        "icon": "dump_metal"
+                    },
+                    {
+                        "key": "paper",
+                        "name": "papír",
+                        "icon": "dump_paper"
+                    },
+                    {
+                        "key": "textile",
+                        "name": "textil",
+                        "icon": "dump_textile"
+                    },
+                    {
+                        "key": "biologic",
+                        "name": "bioodpad",
+                        "icon": "dump_biologic"
+                    },
+                    {
+                        "key": "liquid",
+                        "name": "tekutiny",
+                        "icon": "dump_liquid"
+                    },
+                    {
+                        "key": "dangerous",
+                        "name": "nebezpečný",
+                        "icon": "dump_dangerous"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "code": "comment",
+                "datatype": "text",
+                "required": false,
+                "order": 99,
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace"
+            }
+        ]
+    },
+    {
+        "code": "bin",
+        "name": "Odpadkový koš, kontejner",
+        "icon": "trash",
+        "description": "Dlouhodobě přeplněný nebo rozbitý koš, kontejner",
+        "groups": ["trash"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "code": "bin_condition",
+                "datatype": "multivaluelist",
+                "required": true,
+                "order": 1,
+                "name": "Stav koše, kontejneru",
+                "description": "Co konkrétně je s daným košem špatně?",
+                "values": [
+                    {
+                        "key": "broken",
+                        "name": "rozbitý, poškozený"
+                    },
+                    {
+                        "key": "full",
+                        "name": "přeplněný koš/kontejner"
+                    },
+                    {
+                        "key": "mess",
+                        "name": "nepořádek kolem koše/kontejneru"
+                    },
+                    {
+                        "key": "sizable",
+                        "name": "nadměrný odpad u kontejneru"
+                    },
+                    {
+                        "key": "other",
+                        "name": "něco jiného"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 2,
+                "code": "bin_type",
+                "name": "Typ koše, kontejneru",
+                "description": "Určete o jaký typ koše nebo kontejneru se jedná",
+                "datatype": "multivaluelist",
+                "values": [
+                    {
+                        "key": "household",
+                        "name": "komunální odpad",
+                        "icon": "bin_household"
+                    },
+                    {
+                        "key": "plastic",
+                        "name": "plasty",
+                        "icon": "bin_palstic"
+                    },
+                    {
+                        "key": "electronic",
+                        "name": "elektronika",
+                        "icon": "bin_electronic"
+                    },
+                    {
+                        "key": "glass",
+                        "name": "sklo",
+                        "icon": "bin_glass"
+                    },
+                    {
+                        "key": "metal",
+                        "name": "kovy",
+                        "icon": "bin_metal"
+                    },
+                    {
+                        "key": "paper",
+                        "name": "papír",
+                        "icon": "bin_paper"
+                    },
+                    {
+                        "key": "textile",
+                        "name": "textil",
+                        "icon": "bin_textile"
+                    },
+                    {
+                        "key": "biologic",
+                        "name": "bioodpad",
+                        "icon": "bin_biologic"
+                    },
+                    {
+                        "key": "other",
+                        "name": "jiný",
+                        "icon": "bin_other"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "code": "comment",
+                "datatype": "text",
+                "required": false,
+                "order": 99,
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace"
+            }
+        ]
+    },
+    {
+        "code": "automotive",
+        "icon": "car",
+        "name": "Odstavený autovrak",
+        "description": "Nepojízdné, odstavené auto",
+        "groups": ["trash"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 1,
+                "code": "car_condition",
+                "name": "Stav autovraku",
+                "description": "Určete v jakém stavu se autovrak nachází",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "complet",
+                        "name": "kompletní autovrak",
+                        "default": true
+                    },
+                    {
+                        "key": "partial",
+                        "name": "částečně rozebraný"
+                    },
+                    {
+                        "key": "parts",
+                        "name": "součásti autovraku"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 2,
+                "code": "cars_number",
+                "name": "Počet autovraků",
+                "description": "Určete kolik je na místě autovraků",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "1",
+                        "name": "jeden",
+                        "default": true
+                    },
+                    {
+                        "key": "25",
+                        "name": "2-5 autovraků"
+                    },
+                    {
+                        "key": "more",
+                        "name": "více jak 5 autovraků"
+                    }
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "pavement",
+        "icon": "pedestriancrossing",
+        "name": "Poškozený chodník, cesta",
+        "description": "Závada na chodníku",
+        "groups": ["traffic", "public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "bench",
+        "icon": "heating-and-aircon",
+        "name": "Poškození lavičky, zábradlí",
+        "description": "poškozená/chybějící lavička, zábradlí",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "playground",
+        "icon": "playground",
+        "name": "Poškozené pískoviště, hřiště, sportoviště",
+        "description": "závada na vybavení, poškození",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "sculpture",
+        "icon": "statue-2",
+        "name": "Poškozená socha, památník",
+        "description": "poškozená, dlouhodobě zanedbávaná památka",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "station",
+        "icon": "busstop",
+        "name": "Poškození zastávky MHD, autobusů, vlaků",
+        "description": "Poškození zastávky, jízdního řádu",
+        "groups": ["public", "traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "building",
+        "icon": "earthquake-3",
+        "name": "Nebezpečná budova",
+        "description": "stavba která je nebezpečná, je ve špatném technickém stavu",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+
+    {
+        "code": "bother",
+        "icon": "audio",
+        "name": "Obtěžování kouřem, rušení veřejného pořádku",
+        "description": "zápach, prašnost, vysoký hluk, stavy ohrožující občanské soužití a zdraví",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+
+    {
+        "code": "light",
+        "icon": "poweroutage",
+        "name": "Poškozené, nefunkční veřejné osvětlení",
+        "description": "Závada na veřejném osvětlení",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "electric",
+        "icon": "linedown",
+        "name": "Poškozená elektrická infrastruktura",
+        "description": "poškozené/nebezpečné elektrické vedení, rozvody",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "sewerage",
+        "icon": "waterdrop",
+        "name": "Poškozená kanalizace",
+        "description": "Poškození kanalizace, chybějící poklop",
+        "groups": ["public"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "green",
+        "icon": "riparianhabitat",
+        "name": "Závada na veřejné zeleni",
+        "description": "nebezpečný strom, nalomené větve, závada na zeleni",
+        "groups": ["public","nature"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "animal",
+        "icon": "pets",
+        "name": "Zvířata",
+        "description": "zatoulaná, nalezená, uhynulá zvířata, týrání zvířat",
+        "groups": ["nature","zvireciDetektiv"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 1,
+                "code": "animal_status",
+                "datatype": "singlevaluelist",
+                "name": "Jedná se o",
+                "description": "Jedná se o:",
+                "values": [
+                    {
+                        "key": "found",
+                        "name": "Nalezené zvíře",
+                        "icon": "animal_found",
+                        "default": true
+                    },
+                    {
+                        "key": "lost",
+                        "name": "Ztracené zvíře",
+                        "icon": "animal_lost"
+                    },
+                    {
+                        "key": "abuse",
+                        "name": "Týrané zvíře",
+                        "icon": "animal_abuse"
+                    },
+                    {
+                        "key": "death",
+                        "name": "Uhynulé zvíře",
+                        "icon": "animal_death"
+                    }
+                    
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },    
+    {
+        "code": "forest_erosion",
+        "icon": "riparianhabitat",
+        "name": "Erozní rýha v lese",
+        "description": "výrazná rýha na povrchu svažitého terénu (např. koleje po traktorech v lesích)",
+        "groups": ["nature"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "glade",
+        "icon": "riparianhabitat",
+        "name": "Velká mýtina",
+        "description": "vykácená (vymýcená), část lesa větší než fotbalové hřiště",
+        "groups": ["nature"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "roadway",
+        "icon": "roadtype_gravel",
+        "name": "Poškozený povrch vozovky",
+        "description": "výtluk, propadlá vozovka, nebezpečná nerovnost",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace.",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "bridge",
+        "icon": "barrier",
+        "name": "Poškozená svodidla, mosty",
+        "description": "závada na svodidlech, mostních konstrukcích",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "barrier",
+        "icon": "caution",
+        "name": "Překážka na silnici, u silnice",
+        "description": "překážka bránící/ohrožující provoz, omezení výhledu pro chodce",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "sign",
+        "icon": "speed_50",
+        "name": "Poškozená dopravní značka, zrcadlo",
+        "description": "poškození",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "semaphore",
+        "icon": "trafficlight",
+        "name": "Poškozený semafor",
+        "description": "nefungující, poškozený",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "marks",
+        "icon": "road",
+        "name": "Špatné dopravní značení na komunikaci",
+        "description": "chybějící, poškozené",
+        "groups": ["traffic"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace.",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "ztratyNalezy",
+        "icon": "ztratyNalezy",
+        "name": "Ztráty a nálezy",
+        "description": "Pokud jste něco ztratili, nalezli či vám bylo něco odcizeno, dejte o tom ostatním vědět",
+        "groups": ["ztratyNalezy"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 1,
+                "code": "ztratyStatus",
+                "datatype": "singlevaluelist",
+                "name": "Ztráta/nález/odcizení",
+                "description": "Ztráta/nález/odcizení:",
+                "values": [
+                    {
+                        "key": "found",
+                        "name": "Nalezený předmět",
+                        "icon": "ztrata_found",
+                        "default": true
+                    },
+                    {
+                        "key": "lost",
+                        "name": "Ztracený předmět",
+                        "icon": "ztrata_lost"
+                    },
+                    {
+                        "key": "stolen_car",
+                        "name": "Odcizené auto",
+                        "icon": "stolen_car"
+                    },
+                    {
+                        "key": "stolen_bicycle",
+                        "name": "Odcizené kolo",
+                        "icon": "stolen_bicycle"
+                    },
+                    {
+                        "key": "stolen_other",
+                        "name": "Odcizená jiná věc",
+                        "icon": "stolen_other"
+                    }                    
+                ]
+            },
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "proposal",
+        "icon": "expert",
+        "name": "Návrh na zlepšení",
+        "description": "Nápady, podněty, jak něco zlepšit?",
+        "groups": ["others"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "pochvalTo",
+        "icon": "pochvalTo",
+        "name": "Pochval to",
+        "description": "Potěšilo vás něco ve vašem okolí? Podělte so o to",
+        "groups": ["others","pochvalTo"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    },
+    {
+        "code": "other",
+        "icon": "pens",
+        "name": "Jiné hlášení, problém",
+        "description": "Podněty, které nelze nikam jinam zařadit",
+        "groups": ["others"],
+        "sendNotifications": true,
+        "attributes": [
+            {
+                "variable": false,
+                "required": true,
+                "order": 80,
+                "code": "anonymous",
+                "name": "Anonymita",
+                "description": "Označte, zdali je hlášení anonymní, či může být váš kontakt poskytnut osobě, která bude podnět řešit.",
+                "datatype": "singlevaluelist",
+                "values": [
+                    {
+                        "key": "yes",
+                        "name": "anonymní hlášení",
+                        "default": true
+                    },
+                    {
+                        "key": "no",
+                        "name": "je možno poskytnout kontakt"
+                    }
+                ]
+            },
+            {
+                "variable": true,
+                "required": false,
+                "order": 99,
+                "code": "comment",
+                "name": "Komentář",
+                "description": "Zde můžete uvést doplňující informace",
+                "datatype": "text"
+            }
+        ]
+    }
+]

@@ -1,0 +1,78 @@
+[
+    {
+        "_id": "trash",
+        "name": "Odpady, nepořádek",
+        "icon": "group_trash",
+        "color": "265499",
+        "type": "general",
+        "sort": 1
+    },
+    {
+        "_id": "nature",
+        "name": "Příroda, lesy, zvířata",
+        "icon": "group_nature",
+        "color": "327816",
+        "type": "general",
+        "sort": 2
+    },
+    {
+        "_id": "public",
+        "name": "Veřejná prostranství, parky",
+        "icon": "group_public",
+        "color": "875019",
+        "type": "general",
+        "sort": 3
+    },
+    {
+        "_id": "traffic",
+        "name": "Doprava, silnice, cyklostezky",
+        "icon": "group_traffic",
+        "color": "4d462a",
+        "type": "general",
+        "sort": 4
+    },
+    {
+        "_id": "others",
+        "name": "Ostatní hlášení",
+        "icon": "group_others",
+        "color": "a85959",
+        "type": "general",
+        "sort": 5
+    },
+    {
+        "_id": "zvireciDetektiv",
+        "name": "Zvířecí detektiv",
+        "icon": "zvireciDetektiv",
+        "color": "265499",
+        "type": "project",
+        "date": {
+            "from": "2017-01-01T00:00:00Z",
+            "to": "2099-01-01T00:00:00Z"
+        },
+        "sort": 6
+     },
+    {
+        "_id": "ztratyNalezy",
+        "name": "Ztráty a nálezy",
+        "icon": "ztratyNalezy",
+        "color": "265499",
+        "type": "project",
+        "date": {
+            "from": "2017-01-01T00:00:00Z",
+            "to": "2099-01-01T00:00:00Z"
+        },
+        "sort": 7
+     },
+    {
+        "_id": "pochvalTo",
+        "name": "Pochval to",
+        "icon": "pochvalTo",
+        "color": "265499",
+        "type": "project",
+        "date": {
+            "from": "2017-01-01T00:00:00Z",
+            "to": "2099-01-01T00:00:00Z"
+        },
+        "sort": 8
+     }
+]
